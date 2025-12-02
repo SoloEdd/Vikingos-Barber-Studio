@@ -4,26 +4,25 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Reservacion;
+use App\Models\Usuario;
 use Carbon\Carbon; // Para manejar fechas
 
 class BarberoController extends Controller
 {
     public function index()
     {
-        // Verifica seguridad (Opcional si usas middleware en la ruta)
-        if (session('usuario_rol') !== 'admin' && session('usuario_rol') !== 'barbero') {
-            return redirect('/reservar');
-        }
+        // 1. Obtener el usuario actual basado en la sesión manual
+        $usuarioId = session('usuario_id');
+        $usuario = Usuario::find($usuarioId);
 
-        // Obtener la fecha de hoy
+        // 2. Lógica existente de citas
         $hoy = Carbon::today();
-
-        // Buscar reservaciones donde la fecha sea hoy
-        // Ordenadas por hora
         $citas = Reservacion::whereDate('fecha', $hoy)
                             ->orderBy('hora', 'asc')
+                            ->with('usuario') // Carga optimizada (Eager loading)
                             ->get();
 
-        return view('barber.dashboard', compact('citas'));
+        // 3. Pasar tanto $citas como $usuario a la vista
+        return view('barber.dashboard', compact('citas', 'usuario'));
     }
 }

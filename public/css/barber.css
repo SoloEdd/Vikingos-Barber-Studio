@@ -1,0 +1,53 @@
+/* Hereda fuentes y reseteos básicos del style.css principal */
+
+body {
+    background-color: #1a1a1a; /* Fondo gris muy oscuro */
+    color: #f0f0f0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.dashboard-container {
+    flex: 1;
+    padding: 40px 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+/* Header personalizado con el borde dorado de la marca */
+.card-header-custom {
+    border-bottom: 2px solid #e4c483; /* Color dorado del logo */
+    padding-bottom: 15px;
+    margin-bottom: 30px;
+}
+
+/* Títulos y textos destacados */
+.text-warning-custom {
+    color: #e4c483 !important;
+}
+
+/* Estilos de la tabla para que coincida con el tema */
+.table-barber {
+    background-color: #221111; /* Mismo fondo que el navbar original */
+    border: 1px solid #482323;
+}
+
+.table-barber th {
+    background-color: #331919;
+    color: #e4c483;
+    border-color: #482323;
+}
+
+.table-barber td {
+    background-color: #221111;
+    color: #fff;
+    border-color: #482323;
+    vertical-align: middle;
+}
+
+.badge-pending {
+    background-color: #e4c483;
+    color: #221111;
+}
