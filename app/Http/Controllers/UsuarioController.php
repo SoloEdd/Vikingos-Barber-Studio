@@ -8,17 +8,26 @@ use Illuminate\Support\Facades\Hash;
 
 class UsuarioController extends Controller
 {
-    public function login(Request $request)
-    {
-        $usuario = Usuario::where('email', $request->email)->first();
+    // App/Http/Controllers/UsuarioController.php
 
-        if ($usuario && Hash::check($request->password, $usuario->password)) {
-            session(['usuario_id' => $usuario->id]);
-            return redirect('/reservar');
+public function login(Request $request)
+{
+    $usuario = Usuario::where('email', $request->email)->first();
+
+    if ($usuario && Hash::check($request->password, $usuario->password)) {
+        session(['usuario_id' => $usuario->id]);
+        session(['usuario_rol' => $usuario->rol]); // Guardamos el rol en sesión también
+
+        // LÓGICA DE REDIRECCIÓN BASADA EN ROL
+        if ($usuario->rol === 'admin' || $usuario->rol === 'barbero') {
+            return redirect()->route('barber.dashboard');
+        } else {
+            return redirect()->route('reservar');
         }
-
-        return back()->with('error', 'Credenciales incorrectas');
     }
+
+    return back()->with('error', 'Credenciales incorrectas');
+}
 
     public function logout()
     {

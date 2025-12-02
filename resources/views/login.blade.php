@@ -26,11 +26,7 @@
     <main class="login-main">
         <section class="login-hero">
             <div class="login-container">
-                <div class="development-banner">
-                    <p><strong>Página en desarrollo.</strong> Por favor, usa las siguientes credenciales para acceder:</p>
-                    <p><strong>Usuario:</strong> admin@gmail.com</p>
-                    <p><strong>Contraseña:</strong> admin1234</p>
-                </div>
+                
                 <div class="login-card">
                     <h2>Iniciar Sesión</h2>
 

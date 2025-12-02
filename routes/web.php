@@ -3,6 +3,7 @@
 use App\Http\Controllers\UsuarioController;
 use App\Http\Controllers\ReservacionController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\BarberoController;
 
 /*
 |--------------------------------------------------------------------------
@@ -55,12 +56,6 @@ Route::post('/register', [UsuarioController::class, 'registerStore'])->name('reg
 // RUTA PARA CERRAR SESIÓN (usa el método que ya existe en UsuarioController)
 Route::get('/logout', [UsuarioController::class, 'logout'])->name('logout');
 
-/*
-// [GET] Muestra el formulario de reserva
-Route::get('/reservar', function () {
-    return view('reservar');
-})->name('reservar');
-*/
 
 // [GET] Muestra la vista de reservar usando el método 'create' del controlador
 Route::get('/reservar', [ReservacionController::class, 'create'])->name('reservar');
@@ -76,3 +71,7 @@ Route::get('/confirmacion', function () {
     return view('confirmacion');
 })->name('confirmacion');
 
+// Ruta para el dashboard del barbero
+Route::get('/barber/dashboard', [BarberoController::class, 'index'])
+    ->name('barber.dashboard')
+    ->middleware('check.auth:barbero');

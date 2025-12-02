@@ -11,7 +11,13 @@ class Usuario extends Authenticatable
 
     protected $table = 'usuarios';
     
-    protected $fillable = ['nombre', 'email', 'password'];
+    // App/Models/Usuario.php
+    protected $fillable = [
+        'nombre', 
+        'email', 
+        'password', 
+        'rol' // <-- Agregado
+    ];
 
     public function reservaciones()
     {
