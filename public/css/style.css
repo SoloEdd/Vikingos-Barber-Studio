@@ -1,0 +1,913 @@
+/*
+    ------------------------------------------------------
+    Estilos Generales y Tipografía
+    ------------------------------------------------------
+*/
+body {
+    font-family: 'Space Grotesk', sans-serif;
+    margin: 0;
+    background-color: #221111;
+    color: #f0f0f0;
+}
+
+h1, h2, h3 {
+    text-align: center;
+    color: #e4c483;
+}
+
+section {
+    padding: 60px 20px;
+}
+
+html{
+    scroll-behavior: smooth;
+    
+}
+
+/* Estilo para los mensajes de error del formulario */
+.error-message {
+    color: #ff5555;
+    font-size: 0.9em;
+    margin-top: 5px;
+    display: block;
+}
+
+/*
+    ------------------------------------------------------
+    Header y Navegación
+    ------------------------------------------------------
+*/
+
+
+.header .logo img{
+    height: 100px;
+    width: auto;
+}
+
+.header .logo{
+    cursor: pointer;
+}
+
+header nav li a {
+    text-decoration: none;
+    color: #f0f0f0;
+    font-weight: 500;
+    font-size: 14px;
+    padding: 10px 0;
+    transition: color 0.3s;
+}
+
+header nav li a:hover {
+    color: #e4c483;
+}
+
+.btn-reservar {
+    background-color: #ec1313 !important;
+    color: #fff !important;
+    padding: 10px 20px !important;
+    border-radius: 8px;
+    font-weight: 700;
+    transition: background-color 0.3s;
+}
+
+.btn-reservar:hover {
+    background-color: #ff3333 !important;
+}
+
+/*
+    ------------------------------------------------------
+    Banner Principal 
+    ------------------------------------------------------
+*/
+.hero-section {
+    background-image: url('../img/barberiaphoto.jpg');
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    position: relative;
+    color: white;
+}
+
+.hero-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+}
+
+.hero-content {
+    position: relative;
+    z-index: 10;
+    padding: 20px;
+    max-width: 800px;
+}
+
+.hero-content h1 {
+    font-size: 3.5em;
+    margin-bottom: 20px;
+    color: #e4c483;
+    text-transform: uppercase;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.hero-content p {
+    font-size: 1.2em;
+    margin-bottom: 30px;
+    color: #f0f0f0;
+}
+
+/*
+    ------------------------------------------------------
+    Sección de Servicios
+    ------------------------------------------------------
+*/
+.services-section h2 {
+    color: #f0f0f0;
+    margin-bottom: 40px;
+}
+
+.service-item {
+    background-color: #331919;
+    border: 1px solid #673232;
+    border-radius: 8px;
+    padding: 20px;
+    text-align: center;
+}
+
+.service-item dt h3 {
+    margin-top: 0;
+    color: #e4c483;
+}
+
+.service-item dd p {
+    color: #c99292;
+    font-size: 14px;
+}
+
+/*
+    ------------------------------------------------------
+    Horarios de Atención
+    ------------------------------------------------------
+*/
+.hours-section h2 {
+    color: #f0f0f0;
+    margin-bottom: 30px;
+}
+
+.schedule-table {
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+    border-collapse: collapse;
+}
+
+.schedule-table th,
+.schedule-table td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #482323;
+    color: #f0f0f0;
+}
+
+.schedule-table th {
+    background-color: #221111;
+    font-weight: normal;
+    color: #f0f0f0;
+}
+
+.schedule-table td {
+    background-color: #221111;
+    color: #c99292;
+}
+
+/*
+    ------------------------------------------------------
+    Galería
+    ------------------------------------------------------
+*/
+.gallery-section h2 {
+    color: #f0f0f0;
+    margin-bottom: 30px;
+}
+
+
+.gallery-container img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 5px;
+}
+
+/* Asegura que las imágenes de la galería tengan el mismo tamaño */
+.gallery-img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    display: block;
+    margin: 0 auto;
+}
+
+/*
+    ------------------------------------------------------
+    Equipo
+    ------------------------------------------------------
+*/
+.team-section {
+    text-align: center;
+}
+
+.team-section h2 {
+    color: #f0f0f0;
+    margin-bottom: 40px;
+}
+
+.team-container {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.team-member {
+    text-align: center;
+    padding: 20px;
+    border-radius: 10px;
+    background-color: #331919;
+    border: 1px solid #673232;
+}
+
+.team-member img {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 3px solid #e4c483;
+    margin-bottom: 10px;
+}
+
+.team-member h3 {
+    margin: 5px 0;
+    color: #e4c483;
+}
+
+.team-member p {
+    color: #c99292;
+}
+
+/*
+    ------------------------------------------------------
+    Contacto (Formulario)
+    ------------------------------------------------------
+*/
+.contact-section h2 {
+    color: #f0f0f0;
+    margin-bottom: 30px;
+}
+
+.contact-form {
+    max-width: 600px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.contact-form label {
+    font-weight: 500;
+    color: #f0f0f0;
+}
+
+.contact-form input[type="text"],
+.contact-form input[type="email"],
+.contact-form textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #482323;
+    background-color: #331919;
+    color: #f0f0f0;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+.contact-form textarea {
+    min-height: 120px;
+}
+
+.contact-form button {
+    background-color: #ec1313;
+    color: #fff;
+    border: none;
+    padding: 15px;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    text-transform: uppercase;
+}
+
+.contact-form button:hover {
+    background-color: #ff3333;
+}
+
+/*
+    ------------------------------------------------------
+    Footer
+    ------------------------------------------------------
+*/
+.main-footer {
+    text-align: center;
+    padding: 40px 20px;
+    background-color: #1a1a1a;
+    border-top: 1px solid #333;
+}
+
+.main-footer .footer-links a {
+    color: #e4c483;
+    text-decoration: none;
+    margin: 0 10px;
+    transition: color 0.3s;
+}
+
+.main-footer .footer-links a:hover {
+    color: #6643d6;
+}
+/*
+    ------------------------------------------------------
+    Banner Page Styles - Vikingos Barber Studio
+    ------------------------------------------------------
+*/
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Space Grotesk', sans-serif;
+    height: 100vh;
+    /*overflow: hidden;   oculta el scroll   */ 
+}
+
+.banner-hero {
+    background: linear-gradient(45deg, #221111 0%, #331919 50%, #221111 100%),
+                url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><rect width="1000" height="1000" fill="%23221111"/><circle cx="200" cy="200" r="100" fill="%23331919" opacity="0.3"/><circle cx="800" cy="300" r="150" fill="%23482323" opacity="0.2"/><circle cx="400" cy="700" r="120" fill="%23673232" opacity="0.25"/></svg>');
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    position: relative;
+    color: white;
+    animation: fadeIn 2s ease-in-out;
+}
+
+.banner-hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at center, rgba(0,0,0,0.3) 0%, rgba(34,17,17,0.7) 100%);
+    z-index: 1;
+}
+
+.banner-content {
+    position: relative;
+    z-index: 10;
+    padding: 40px;
+    max-width: 900px;
+    animation: slideUp 1.5s ease-out 0.5s both;
+}
+
+.logo-container {
+    margin-bottom: 30px;
+    animation: scaleIn 1s ease-out 1s both;
+}
+
+.logo-placeholder {
+    width: 120px;
+    height: 120px;
+    background: linear-gradient(135deg, #e4c483 0%, #f0d696 100%);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    font-size: 24px;
+    font-weight: 700;
+    color: #221111;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    box-shadow: 0 0 30px rgba(228, 196, 131, 0.4);
+    border: 3px solid rgba(228, 196, 131, 0.6);
+}
+
+.banner-content h1 {
+    font-size: clamp(2.5rem, 8vw, 4.5rem);
+    margin-bottom: 25px;
+    color: #e4c483;
+    text-transform: uppercase;
+    text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.7);
+    letter-spacing: 3px;
+    font-weight: 700;
+    line-height: 1.1;
+}
+
+.banner-content .subtitle {
+    font-size: clamp(1rem, 3vw, 1.4rem);
+    margin-bottom: 40px;
+    color: #f0f0f0;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+    line-height: 1.6;
+    font-weight: 300;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.btn-enter {
+    background: linear-gradient(135deg, #ec1313 0%, #ff3333 100%);
+    color: #fff;
+    padding: 18px 40px;
+    border: none;
+    border-radius: 50px;
+    font-weight: 700;
+    font-size: 18px;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(236, 19, 19, 0.4);
+    display: inline-block;
+}
+
+.btn-enter::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(255,255,255,0.2) 0%, rgba(255,255,255,0.1) 100%);
+    transition: left 0.5s ease;
+}
+
+.btn-enter:hover::before {
+    left: 100%;
+}
+
+.btn-enter:hover {
+    background: linear-gradient(135deg, #ff3333 0%, #ff5555 100%);
+    transform: translateY(-3px);
+    box-shadow: 0 15px 40px rgba(236, 19, 19, 0.6);
+}
+
+.decorative-elements {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: 2;
+}
+
+.floating-element {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background: rgba(228, 196, 131, 0.1);
+    border-radius: 50%;
+    animation: float 6s ease-in-out infinite;
+}
+
+.floating-element:nth-child(1) {
+    top: 20%;
+    left: 10%;
+    animation-delay: 0s;
+}
+
+.floating-element:nth-child(2) {
+    top: 60%;
+    right: 15%;
+    animation-delay: 2s;
+    width: 30px;
+    height: 30px;
+}
+
+.floating-element:nth-child(3) {
+    bottom: 30%;
+    left: 20%;
+    animation-delay: 4s;
+    width: 15px;
+    height: 15px;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes scaleIn {
+    from {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0px) rotate(0deg);
+    }
+    50% {
+        transform: translateY(-20px) rotate(180deg);
+    }
+}
+
+
+@media (max-width: 768px) {
+    .banner-content {
+        padding: 20px;
+    }
+    
+    .logo-placeholder {
+        width: 100px;
+        height: 100px;
+        font-size: 20px;
+    }
+    
+    .btn-enter {
+        padding: 15px 30px;
+        font-size: 16px;
+    }
+}
+
+/* Móviles */
+@media (max-width: 480px) {
+    .banner-content h1 {
+        letter-spacing: 1px;
+    }
+    
+    .logo-placeholder {
+        width: 80px;
+        height: 80px;
+        font-size: 16px;
+    }
+}
+
+/*
+    ------------------------------------------------------
+    Página de Reservas - Vikingos Barber Studio
+    ------------------------------------------------------
+*/
+
+.reservation-main {
+    padding-top: 120px; /* Espacio para el header fijo */
+    min-height: 100vh;
+    background-color: #221111;
+}
+
+.reservation-hero {
+    padding: 40px 20px 80px;
+    background: linear-gradient(135deg, #221111 0%, #331919 100%);
+}
+
+.reservation-container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.reservation-header {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.reservation-header h1 {
+    font-size: 2.5rem;
+    color: #e4c483;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.reservation-header p {
+    font-size: 1.1rem;
+    color: #c99292;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.reservation-content {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 40px;
+    align-items: start;
+}
+
+.reservation-form {
+    background-color: #331919;
+    border: 1px solid #673232;
+    border-radius: 10px;
+    padding: 30px;
+}
+
+.form-section {
+    margin-bottom: 30px;
+    padding-bottom: 25px;
+    border-bottom: 1px solid #482323;
+}
+
+.form-section:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+}
+
+.form-section h3 {
+    color: #e4c483;
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    color: #f0f0f0;
+    font-weight: 500;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid #482323;
+    background-color: #221111;
+    color: #f0f0f0;
+    border-radius: 5px;
+    font-size: 14px;
+    transition: border-color 0.3s;
+    box-sizing: border-box;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: #e4c483;
+    box-shadow: 0 0 0 2px rgba(228, 196, 131, 0.2);
+}
+
+.form-group select {
+    cursor: pointer;
+}
+
+.form-group textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+
+.checkbox-container {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    cursor: pointer;
+    color: #c99292;
+    line-height: 1.5;
+}
+
+.checkbox-container input[type="checkbox"] {
+    display: none;
+}
+
+.checkmark {
+    width: 18px;
+    height: 18px;
+    border: 2px solid #482323;
+    border-radius: 3px;
+    background-color: #221111;
+    position: relative;
+    flex-shrink: 0;
+    margin-top: 2px;
+    transition: all 0.3s;
+}
+
+.checkbox-container input[type="checkbox"]:checked + .checkmark {
+    background-color: #e4c483;
+    border-color: #e4c483;
+}
+
+.checkbox-container input[type="checkbox"]:checked + .checkmark::after {
+    content: '✓';
+    position: absolute;
+    top: -2px;
+    left: 2px;
+    color: #221111;
+    font-weight: bold;
+    font-size: 12px;
+}
+
+.checkbox-container a {
+    color: #e4c483;
+    text-decoration: underline;
+}
+
+.checkbox-container a:hover {
+    color: #f0d696;
+}
+
+.form-actions {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    margin-top: 30px;
+}
+
+.btn-reservar-form {
+    background: linear-gradient(135deg, #ec1313 0%, #ff3333 100%);
+    color: #fff;
+    border: none;
+    padding: 15px 40px;
+    border-radius: 50px;
+    font-weight: 700;
+    font-size: 16px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: all 0.3s;
+    box-shadow: 0 5px 20px rgba(236, 19, 19, 0.4);
+}
+
+.btn-reservar-form:hover {
+    background: linear-gradient(135deg, #ff3333 0%, #ff5555 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(236, 19, 19, 0.6);
+}
+
+.btn-cancelar {
+    background-color: transparent;
+    color: #c99292;
+    border: 1px solid #482323;
+    padding: 15px 30px;
+    border-radius: 50px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.btn-cancelar:hover {
+    background-color: #482323;
+    color: #f0f0f0;
+}
+
+.reservation-info {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.info-card {
+    background-color: #331919;
+    border: 1px solid #673232;
+    border-radius: 8px;
+    padding: 20px;
+}
+
+.info-card h4 {
+    color: #e4c483;
+    margin-bottom: 15px;
+    font-size: 1.1rem;
+}
+
+.info-card ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.info-card li {
+    color: #c99292;
+    margin-bottom: 8px;
+    padding-left: 15px;
+    position: relative;
+    font-size: 14px;
+}
+
+.info-card li::before {
+    content: '•';
+    color: #e4c483;
+    position: absolute;
+    left: 0;
+}
+
+.schedule-info p {
+    color: #c99292;
+    margin-bottom: 5px;
+    font-size: 14px;
+}
+
+.contact-info p {
+    color: #c99292;
+    margin-bottom: 8px;
+    font-size: 14px;
+}
+
+@media (max-width: 768px) {
+    .reservation-content {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+    
+    .form-row {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+    
+    .reservation-header h1 {
+        font-size: 2rem;
+    }
+    
+    .reservation-form {
+        padding: 20px;
+    }
+    
+    .form-actions {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .btn-reservar-form,
+    .btn-cancelar {
+        width: 100%;
+        max-width: 300px;
+    }
+}
+
+@media (max-width: 480px) {
+    .reservation-main {
+        padding-top: 140px;
+    }
+    
+    .reservation-hero {
+        padding: 20px 15px 60px;
+    }
+    
+    .reservation-header h1 {
+        font-size: 1.8rem;
+        letter-spacing: 1px;
+    }
+    
+    .form-section {
+        margin-bottom: 25px;
+        padding-bottom: 20px;
+    }
+}
+body.reservation-page,
+body.reservation-page html {
+    overflow: visible !important;
+    overflow-y: auto !important;
+    height: auto !important;
+    max-height: none !important;
+}
+
+html:has(.reservation-page) {
+    overflow: auto !important;
+}
