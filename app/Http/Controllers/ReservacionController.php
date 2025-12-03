@@ -44,13 +44,14 @@ class ReservacionController extends Controller
         // Buscamos si existe alguna reserva con la misma fecha y hora
         $existeCita = Reservacion::where('fecha', $request->fecha)
                                 ->where('hora', $request->hora)
+                                ->where('barbero', $request->barbero)
                                 ->exists(); // Retorna true o false
 
         if ($existeCita) {
             // Si existe, regresamos al formulario con un error y mantenemos los datos escritos (withInput)
             return back()
                 ->withInput() 
-                ->with('error', 'Lo sentimos, el horario de las ' . $request->hora . ' ya está ocupado. Por favor selecciona otra hora.');
+                ->with('error', 'Lo sentimos, el horario de las ' . $request->hora . 'o el barbero ' . ucfirst($request->barbero) . ' ya está ocupado. Por favor selecciona otra hora.');
         }
 
         // 3. Crear la reservación (Si pasó la validación anterior)
