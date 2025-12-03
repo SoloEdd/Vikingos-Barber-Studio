@@ -27,29 +27,42 @@ class ReservacionController extends Controller
         return view('reservar', ['usuario' => $usuario]);
     }
 
+    // App/Http/Controllers/ReservacionController.php
+
     public function store(Request $request)
     {
-        // lógica existente para guardar la reserva
+        // 1. Validar formato de datos 
         $request->validate([
             'servicio' => 'required',
             'fecha' => 'required|date',
             'hora' => 'required',
-            'barbero' => 'nullable|string',     
-            'comentarios' => 'nullable|string', 
+            'barbero' => 'nullable|string',
+            'comentarios' => 'nullable|string',
         ]);
 
-        // Crear la reservación
+        // 2. LÓGICA DE VERIFICACIÓN DE DISPONIBILIDAD
+        // Buscamos si existe alguna reserva con la misma fecha y hora
+        $existeCita = Reservacion::where('fecha', $request->fecha)
+                                ->where('hora', $request->hora)
+                                ->exists(); // Retorna true o false
+
+        if ($existeCita) {
+            // Si existe, regresamos al formulario con un error y mantenemos los datos escritos (withInput)
+            return back()
+                ->withInput() 
+                ->with('error', 'Lo sentimos, el horario de las ' . $request->hora . ' ya está ocupado. Por favor selecciona otra hora.');
+        }
+
+        // 3. Crear la reservación (Si pasó la validación anterior)
         $reservacion = Reservacion::create([
             'usuario_id' => session('usuario_id'),
             'servicio' => $request->servicio,
             'fecha' => $request->fecha,
             'hora' => $request->hora,
-            'barbero' => $request->barbero,         // <-- AÑADIDO
-            'comentarios' => $request->comentarios, // <-- AÑADIDO
+            'barbero' => $request->barbero,
+            'comentarios' => $request->comentarios,
         ]);
-        
-        // Usar 'with()' para guardar los datos de la RESERVACIÓN COMPLETA 
-        // en la sesión por una única solicitud (flash data).
+
         return redirect()->route('confirmacion')->with('reservaData', $reservacion);
     }
 }

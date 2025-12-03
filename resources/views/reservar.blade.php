@@ -46,6 +46,13 @@
                     <p>Agenda tu cita en Vikingos Barber Studio y vive una experiencia única</p>
                 </div>
 
+                    {{-- BLOQUE PARA MOSTRAR EL ERROR DE HORARIO OCUPADO --}}
+                    @if(session('error'))
+                        <div class="alert alert-danger" role="alert" style="background-color: #5d0000; color: #ff9999; border: 1px solid #ff0000;">
+                            <i class="fas fa-exclamation-circle"></i> {{ session('error') }}
+                        </div>
+                    @endif
+
                 <div class="reservation-content">
               
                     <form class="reservation-form" id="reservationForm" method="POST" action="{{ route('reservar.store') }}">
