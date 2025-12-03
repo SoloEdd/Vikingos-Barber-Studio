@@ -72,7 +72,7 @@
                             </tbody>
                         </table>
                     </div>
-                    <a href="{{ route('mainsite') }}" class="btn btn-outline-warning mt-4">Volver al inicio</a>
+                    <a href="{{ route('reservar') }}" class="btn btn-outline-warning mt-4">Volver al inicio</a>
                 </div>
             </div>
         </section>
