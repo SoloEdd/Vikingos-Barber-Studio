@@ -48,43 +48,51 @@
                 <table class="table table-barber table-hover shadow">
                     <thead>
                         <tr>
-                            <th class="text-center" style="width: 100px;">Hora</th>
+                            <th class="text-center">Hora</th>
                             <th>Cliente</th>
                             <th>Servicio</th>
-                            <th>Preferencia</th>
-                            <th>Comentarios</th>
+                            <th>Barbero</th>
                             <th class="text-center">Estado</th>
+                            <th class="text-center">Acción</th>
                         </tr>
                     </thead>
                     <tbody>
                         @foreach($citas as $cita)
-                            <tr>
-                                <td class="text-center fw-bold text-warning-custom">
+                            {{-- Fila con opacidad si está finalizada --}}
+                            <tr class="{{ $cita->estado === 'finalizada' ? 'opacity-50' : '' }}">
+                                <td class="text-center fw-bold text-warning-custom align-middle">
                                     {{ \Carbon\Carbon::parse($cita->hora)->format('H:i') }}
                                 </td>
-                                <td>
+                                <td class="align-middle">
                                     <div class="fw-bold">{{ $cita->usuario->nombre ?? 'Usuario eliminado' }}</div>
-                                    <small class="text-white-50">{{ $cita->usuario->email ?? '' }}</small>
                                 </td>
-                                <td>
+                                <td class="align-middle">
                                     {{ ucfirst(str_replace('-', ' ', $cita->servicio)) }}
                                 </td>
-                                <td>
-                                    @if($cita->barbero)
-                                        <span class="badge bg-secondary">{{ ucfirst($cita->barbero) }}</span>
+                                <td class="align-middle">
+                                    {{ ucfirst($cita->barbero ?? 'Cualquiera') }}
+                                </td>
+                                <td class="text-center align-middle">
+                                    @if($cita->estado === 'pendiente')
+                                        <span class="badge badge-pending">Pendiente</span>
+                                    @elseif($cita->estado === 'finalizada')
+                                        <span class="badge bg-success">Finalizada</span>
                                     @else
-                                        <span class="text-muted fst-italic small">Cualquiera</span>
+                                        <span class="badge bg-danger">Cancelada</span>
                                     @endif
                                 </td>
-                                <td>
-                                    @if($cita->comentarios)
-                                        <small>{{ Str::limit($cita->comentarios, 50) }}</small>
+                                <td class="text-center align-middle">
+                                    @if($cita->estado === 'pendiente')
+                                        <form action="{{ route('barber.finalizar', $cita->id) }}" method="POST">
+                                            @csrf
+                                            @method('PATCH')
+                                            <button type="submit" class="btn btn-sm btn-outline-success">
+                                                <i class="fas fa-check"></i> Finalizar
+                                            </button>
+                                        </form>
                                     @else
-                                        <span class="text-muted">-</span>
+                                        <span class="text-muted"><i class="fas fa-check-double"></i> Listo</span>
                                     @endif
-                                </td>
-                                <td class="text-center">
-                                    <span class="badge badge-pending">Pendiente</span>
                                 </td>
                             </tr>
                         @endforeach
@@ -92,7 +100,6 @@
                 </table>
             </div>
         @endif
-        
     </div>
 
     {{-- Bootstrap JS --}}

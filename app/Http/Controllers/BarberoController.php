@@ -14,15 +14,24 @@ class BarberoController extends Controller
         // 1. Obtener el usuario actual basado en la sesión manual
         $usuarioId = session('usuario_id');
         $usuario = Usuario::find($usuarioId);
-
-        // 2. Lógica existente de citas
         $hoy = Carbon::today();
+
+        // Ordenamos: Primero las pendientes, luego por hora
         $citas = Reservacion::whereDate('fecha', $hoy)
+                            ->orderByRaw("FIELD(estado, 'pendiente', 'finalizada', 'cancelada')")
                             ->orderBy('hora', 'asc')
-                            ->with('usuario') // Carga optimizada (Eager loading)
+                            ->with('usuario')
                             ->get();
 
-        // 3. Pasar tanto $citas como $usuario a la vista
         return view('barber.dashboard', compact('citas', 'usuario'));
+    }
+
+    public function finalizar($id)
+    {
+        $cita = Reservacion::findOrFail($id);
+
+        $cita->update(['estado' => 'finalizada']);
+
+        return back()->with('success', 'Cita marcada como finalizada.');
     }
 }

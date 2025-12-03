@@ -75,3 +75,11 @@ Route::get('/confirmacion', function () {
 Route::get('/barber/dashboard', [BarberoController::class, 'index'])
     ->name('barber.dashboard')
     ->middleware('check.auth:barbero');
+
+// Ruta para que el barbero finalice una cita
+Route::patch('/barber/cita/{id}/finalizar', [BarberoController::class, 'finalizar'])
+    ->name('barber.finalizar')
+    ->middleware('check.auth:barbero');
+
+// Ruta para cancelar la cita (DELETE)
+Route::delete('/reservar/{id}', [ReservacionController::class, 'destroy'])->name('reservar.cancel');
